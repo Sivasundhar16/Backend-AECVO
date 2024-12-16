@@ -3,7 +3,7 @@ import { createTransport } from "nodemailer";
 const sendEmail = async ({ email, subject, message }) => {
   const transport = createTransport({
     host: process.env.TEST_EMAIL_HOST,
-    port: process.env.TEST_EMAIL_POST,
+    port: process.env.TEST_EMAIL_POST || 587,
     auth: {
       user: process.env.TEST_EMAIL_USERNAME,
       pass: process.env.TEST_PASSWORD,
