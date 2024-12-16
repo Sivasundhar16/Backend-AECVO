@@ -2,19 +2,26 @@ import { createTransport } from "nodemailer";
 
 const sendEmail = async ({ email, subject, message }) => {
   const transport = createTransport({
-    host: process.env.HOST,
-    port: process.env.PORT || 587,
+    host: process.env.TEST_EMAIL_HOST,
+    port: process.env.TEST_EMAIL_POST,
     auth: {
-      user: process.env.USER,
-      pass: process.env.PASSWORD,
+      user: process.env.TEST_EMAIL_USERNAME,
+      pass: process.env.TEST_PASSWORD,
     },
+
+    // host: process.env.HOST,
+    // port: process.env.PORT || 587,
+    // auth: {
+    //   user: process.env.USER,
+    //   pass: process.env.PASSWORD,
+    // },
   });
 
   const mailOptions = {
-    from: '"Test" <aevoc@gmail.com>',
-    to: "elcot0022@gmail.com",
+    from: '"Hi" <aevoc@gmail.com>',
+    to: email,
     subject: subject,
-    text: "Hi for Testing",
+    text: message,
   };
 
   await transport.sendMail(mailOptions);

@@ -129,8 +129,6 @@ export const getcurrentUser = async (req, res) => {
 };
 
 export const forgetPassword = async (req, res) => {
-  console.log("test3");
-
   try {
     const { email } = req.body;
 
