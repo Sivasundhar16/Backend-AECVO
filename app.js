@@ -17,7 +17,7 @@ app.use(cookieParser());
 app.use("/api/v1/auth", authrouter);
 app.use("/api/v1/courses", courseroute);
 
-const PORT = process.env.APP_PORT || 5000; // Use Render's PORT variable
+const PORT = process.env.PORT || 5000; // Use Render's PORT variable
 
 const startServer = async () => {
   try {
